@@ -1,0 +1,10 @@
+Fucsia: #CB20F5
+Viola: #8D23F0
+Blu scuro: #1F1CFA
+Azzurro: #16A4FA
+Ciano: #16EFF0
+
+Blu chiaro: #5d80bb  ovvero   hsl(218, 41%, 55%)
+Blu scuro: #354f7e  ovvero   hsl(218, 41%, 35%)
+Viola scuro: #44006b
+Fucsia/viola chiaro: #ad1fff

@@ -1,0 +1,86 @@
+/* Default height for small devices */
+#intro-example {
+  height: 400px;
+}
+
+/* Height for devices larger than 992px */
+@media (min-width: 992px) {
+  #intro-example {
+  height: 600px;
+  }
+}
+
+.containerlist {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.background-radial-gradient {
+  background-color: hsl(218, 41%, 45%);
+  background-image: radial-gradient(650px circle at 0% 0%,
+      hsl(218, 41%, 45%) 15%,
+      hsl(218, 41%, 40%) 35%,
+      hsl(218, 41%, 30%) 75%,
+      hsl(218, 41%, 29%) 80%,
+      transparent 100%),
+    radial-gradient(1250px circle at 100% 100%,
+      hsl(218, 41%, 55%) 15%,
+      hsl(218, 41%, 40%) 35%,
+      hsl(218, 41%, 30%) 75%,
+      hsl(218, 41%, 29%) 80%,
+      transparent 100%);
+}
+
+#radius-shape-1 {
+  height: 220px;
+  width: 220px;
+  top: -60px;
+  left: -220px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+
+#radius-shape-2 {
+  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+  bottom: -60px;
+  right: -110px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+
+.bg-glass {
+  background-color: hsla(0, 0%, 100%, 0.9) !important;
+  backdrop-filter: saturate(200%) blur(25px);
+}
+
+.centro{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
+  }​
+  
+  .center {
+  margin-left: auto;
+  margin-right: auto;
+  }
+  
+  body{
+    background-color: silver;
+  }
+  
+  #content{
+    background-color: white;
+  }
+  
+  #footer{
+    color: white;
+    padding: 30px;
+    text-align: center;
+  }
+  
