@@ -54,5 +54,4 @@ CREATE TABLE client_buys_product(
 );
 
 CREATE USER IF NOT EXISTS 'admin'@'%' IDENTIFIED BY 'Admin123!';
-
-GRANT SELECT, UPDATE, DELETE, INSERT ON gestione_salone.* TO 'admin'@'%';
+GRANT ALL privileges ON gestione_salone.* TO 'admin'@'%';
