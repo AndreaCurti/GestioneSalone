@@ -38,11 +38,7 @@
             if($result){
                 if ($result->num_rows > 0) {
                     $row = $result->fetch_assoc();
-                    $_SESSION['id'] = $row['id'];
-                    $_SESSION['role'] = $row['role'];
-                    $_SESSION['name'] = $row['name'];
-                    $_SESSION['surname'] = $row['surname'];
-                    $_SESSION['shop_id'] = $row['shop_id'];
+                    $_SESSION['email'] = $row['email'];
                     return true;
                 }
             }

@@ -30,15 +30,9 @@ class View
             }else{
                 require 'application/views/header.php';
             }*/
-            if(isset($_SESSION['role'])){
-                if($_SESSION['role'] == "amministratore"){
-                    require 'application/views/headerAdmin.php';
-                }else if($_SESSION['role'] == "utente"){
-                    require 'application/views/headerUser.php';
-                }
+            if(isset($_SESSION['email'])){
+                require 'application/views/header.php';
             }
-
-
             require "application/views/" . $name;
             require 'application/views/footer.php';
         }

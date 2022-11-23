@@ -11,7 +11,7 @@
  * Configurazione di : Error reporting
  * Utile per vedere tutti i piccoli problemi in fase di sviluppo, in produzione solo quelli gravi
  */
-error_reporting(E_ALL);
+error_reporting(E_ALL ^ E_DEPRECATED);
 ini_set("display_errors", 1);
 
 /**

@@ -28,16 +28,13 @@
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" style="color:#26395a" href="<?php echo URL; ?>shops">Succursali</a>
+          <a class="nav-link" style="color:#26395a" href="<?php echo URL; ?>clients">Clienti</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="color:#26395a" href="<?php echo URL; ?>users">Utenti</a>
+          <a class="nav-link" style="color:#26395a" href="<?php echo URL; ?>products">Prodotti</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="color:#26395a" href="<?php echo URL; ?>admins">Amministratori</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" style="color:#26395a" href="#">Archivio</a>
+          <a class="nav-link" style="color:#26395a" href="<?php echo URL; ?>services">Servizi</a>
         </li>
       </ul>
       <!-- Left links -->
