@@ -20,7 +20,7 @@
             <div class="h-100">
                 <div class="col-lg-12 mt-5" style="z-index: 10">
                     <h1 class="display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-                        Gestione clienti
+                        Gestione prodotti
                     </h1>
                 </div>
             </div>
@@ -34,14 +34,14 @@
             <!-- List group-->
             <ul class="list-group">
                 <!-- list group item-->
-                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>clients/loadAddPage">
+                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>products/loadAddPage">
                     <li class="list-group-item">
                         <!-- Custom content-->
                         <div class="media align-items-lg-center py-1">
                             <div class="media-body">
-                                <h4 class="mt-0 font-weight-bold mb-2">Aggiungi cliente</h4>
+                                <h4 class="mt-0 font-weight-bold mb-2">Aggiungi prodotto</h4>
                             </div>
-                            <img src="<?php echo URL; ?>application/public/img/plus-icon.png" alt="Aggiungi cliente" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
+                            <img src="<?php echo URL; ?>application/public/img/plus-icon.png" alt="Aggiungi prodotto" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
                             <div class="mask gradient-custom"></div>
                         </div>
                         <!-- End -->
@@ -50,14 +50,14 @@
                 <!-- End -->
 
                 <!-- list group item-->
-                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>clients/loadModifyPage">
+                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>products/loadModifyPage">
                     <li class="list-group-item">
                         <!-- Custom content-->
                         <div class="media align-items-lg-center py-1">
                             <div class="media-body">
-                                <h4 class="mt-0 font-weight-bold mb-2">Modifica cliente</h4>
+                                <h4 class="mt-0 font-weight-bold mb-2">Modifica prodotto</h4>
                             </div>
-                            <img src="<?php echo URL; ?>application/public/img/pencil-icon.png" alt="Modifica cliente" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
+                            <img src="<?php echo URL; ?>application/public/img/pencil-icon.png" alt="Modifica prodotto" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
                             <div class="mask gradient-custom"></div>
                         </div>
                         <!-- End -->
@@ -66,14 +66,14 @@
                 <!-- End -->
 
                 <!-- list group item-->
-                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>clients/loadDeletePage">
+                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>products/loadDeletePage">
                     <li class="list-group-item">
                         <!-- Custom content-->
                         <div class="media align-items-lg-center py-1">
                             <div class="media-body">
-                                <h4 class="mt-0 font-weight-bold mb-2">Elimina cliente</h4>
+                                <h4 class="mt-0 font-weight-bold mb-2">Elimina prodotto</h4>
                             </div>
-                            <img src="<?php echo URL; ?>application/public/img/delete-icon.png" alt="Elimina cliente" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
+                            <img src="<?php echo URL; ?>application/public/img/delete-icon.png" alt="Elimina prodotto" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
                             <div class="mask gradient-custom"></div>
                         </div>
                         <!-- End -->

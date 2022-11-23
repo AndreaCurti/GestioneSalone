@@ -1,23 +1,14 @@
 <?php
-class Clients extends Controller
+class Products extends Controller
 {
     /**
-     * Questo metodo serve per caricare la pagina per la gestione dei clienti.
+     * Questo metodo serve per caricare la pagina per la gestione dei prodotti.
      */
 
     public function index()
     {
         if(isset($_SESSION['email'])){
-            $this->view->render('clients/index.php');
-        }else{
-            $this->view->render('login/index.php');
-        }
-    }
-
-    public function openLista()
-    {
-        if(isset($_SESSION['email'])){
-            $this->view->render('home/lista.php');
+            $this->view->render('products/index.php');
         }else{
             $this->view->render('login/index.php');
         }
@@ -26,7 +17,7 @@ class Clients extends Controller
     public function loadAddPage()
     {
         if(isset($_SESSION['email'])){
-            $this->view->render('clients/addClient.php');
+            $this->view->render('products/.php');
         }else{
             $this->view->render('login/index.php');
         }
@@ -35,7 +26,7 @@ class Clients extends Controller
     public function loadModifyPage()
     {
         if(isset($_SESSION['email'])){
-            $this->view->render('clients/modifyClient.php');
+            $this->view->render('products/.php');
         }else{
             $this->view->render('login/index.php');
         }
@@ -44,7 +35,7 @@ class Clients extends Controller
     public function loadDeletePage()
     {
         if(isset($_SESSION['email'])){
-            $this->view->render('clients/deleteClient.php');
+            $this->view->render('products/.php');
         }else{
             $this->view->render('login/index.php');
         }

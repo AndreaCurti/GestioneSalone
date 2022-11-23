@@ -2,19 +2,19 @@
     <div class="row align-items-center mb-5">
         <div class="col-lg-12" style="z-index: 10">
             <h1 class="display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-                Modifica amministratore
+                Modifica cliente
             </h1>
         </div>
 
         <div class="card bg-glass mb-5">
             <div class="card-body px-4 pt-5 pb-4 px-md-5 ">
-                <form action="<?php echo URL ?>admins/modifyAdmin" method="POST">
+                <form action="<?php echo URL ?>clients/modifyClient" method="POST">
                     <!-- Select user input -->
                     <div class="form-group mb-4">
-                        <label for="selectAdmin" class="control-label pull-right">Scegli un amministratore</label>
-                        <select name="idAdmin" id="selectAdmin" onchange="showUser(this.value)" class="form-select" style="background: transparent; color: #4f4f4f">
-                            <?php if(isset($data['admins'])){ foreach($data['admins'] as $admin): ?>
-                                <option value="<?php echo $admin["id"]; ?>" <?php echo (isset($data['lastId']) && $data['lastId'] == $admin["id"] ? "SELECTED" : ""); ?>><?php echo $admin["email"]; ?></option>
+                        <label for="selectAdmin" class="control-label pull-right">Scegli un cliente</label>
+                        <select name="idClient" id="selectClient" class="form-select" style="background: transparent; color: #4f4f4f">
+                            <?php if(isset($data['clients'])){ foreach($data['clients'] as $client): ?>
+                                <option value="<?php echo $client["id"]; ?>" <?php echo (isset($data['lastId']) && $data['lastId'] == $client["id"] ? "SELECTED" : ""); ?>><?php echo $client["email"]; ?></option>
                             <?php endforeach; }?>
                         </select>
 
@@ -65,13 +65,13 @@
 </div>
 <script>
     window.onload = function onloadFunction() {
-        var e = document.getElementById("selectAdmin");
+        var e = document.getElementById("selectClient");
         var value = e.value;
 
-        showUser(value);
+        showClient(value);
     }
 
-    function showUser(id) {
+    function showClient(id) {
         if (id=="") {
             return;
         }
@@ -99,7 +99,7 @@
                 }
             }
         }
-        xmlhttp.open("GET","<?php echo URL ?>admins/getSpecificAdminInfo/"+id,true);
+        xmlhttp.open("GET","<?php echo URL ?>clients/getSpecificClientInfo/"+id,true);
         xmlhttp.send();
     }
 </script>
