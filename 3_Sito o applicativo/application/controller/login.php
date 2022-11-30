@@ -5,12 +5,9 @@
          * Questo metodo serve per caricare la pagina di login.
          * In caso l'utente fosse già loggato e questa pagine viene richiamata,
          * l'utente verrà sloggato e portato alla pagina di login.
-         * 
-         * @param String $message -> errore da stampare, default = ""
          */
-        public function index($message = ""){
+        public function index(){
             session_unset();
-            $this->view->errorMessage = $message;
             $this->view->render('login/index.php');
         }
 
@@ -31,6 +28,8 @@
                         array('error' => "Completare tutti i campi", 'lastEmail' => $_POST["email"]));
                 }
 
+            }else{
+                $this->view->locate('login');
             }
         }
     }

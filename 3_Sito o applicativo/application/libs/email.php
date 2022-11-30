@@ -6,11 +6,26 @@
 	{
 
 		/**
-         * Torna se l'email ha tuttte le caratteristiche valide oppure no
-         */
+		 * Torna se l'email ha tuttte le caratteristiche valide oppure no
+		 */
 		public static function isValid($email){
 			if(self::checkFilters($email)){
 				if(self::checkEmailsInDB($email)){
+					return true;
+				}else{
+					throw new Exception("Email già esistente");
+				}
+			}else{
+				throw new Exception("Email non valida");
+			}
+		}
+
+		/**
+		 * Torna se l'email ha tuttte le caratteristiche valide per i clienti oppure no
+		 */
+		public static function isValidClient($email){
+			if(self::checkFilters($email)){
+				if(self::checkEmailsInDBClient($email)){
 					return true;
 				}else{
 					throw new Exception("Email già esistente");
@@ -46,23 +61,21 @@
 		}
 
 		/**
-		 * Controlla se l'email dell'utente con id passato come parametro sia uguale a quella passata.
-		 * Se torna 1 significa che l'email passata è uguale a quella presente sul database, altrimenti 0
-		 *
-		 * @param Int $id -> id dell'utente
+		 * Torna se l'email è già presente (false) nel database oppure no (true)
 		 */
-		public static function isOldEmail($id, $email){
+		public static function checkEmailsInDBClient($email){
 			require_once 'application/libs/database.php';
 			$conn = Database::getConnection();
-			$sql = $conn->prepare("SELECT * FROM user WHERE id=?");
-			$sql->bind_param("s", $id);
+			$sql = $conn->prepare("SELECT * FROM client WHERE email=? ");
+			$sql->bind_param("s", $email);
 			$sql->execute();
 			$result = $sql->get_result();
-			$finEm = $result->fetch_assoc()['email'];
-			if($finEm == $email){
-				return true;
+			if($result){
+				if ($result->num_rows > 0) {
+					return false;
+				}
 			}
-			return false;
+			return true;
 		}
 	}
 ?>

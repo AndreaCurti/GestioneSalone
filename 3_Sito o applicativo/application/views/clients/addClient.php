@@ -25,7 +25,7 @@
                             <input type="email" class="form-control" autocomplete="off" name="email" placeholder="Email" <?php if(isset($data['lastEmail'])){ ?> value="<?php echo $data['lastEmail'] ?>"<?php } ?>/>
                         </div>
 
-                        <!-- Address input -->
+                        <!-- Phone input -->
                         <div class="form-outline mb-4">
                             <input type="number" class="form-control" autocomplete="off" name="number" placeholder="Number" <?php if(isset($data['lastNumber'])){ ?> value="<?php echo $data['lastNumber'] ?>"<?php } ?>/>
                         </div>

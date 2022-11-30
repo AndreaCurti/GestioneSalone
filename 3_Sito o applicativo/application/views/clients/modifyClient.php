@@ -12,7 +12,7 @@
                     <!-- Select user input -->
                     <div class="form-group mb-4">
                         <label for="selectAdmin" class="control-label pull-right">Scegli un cliente</label>
-                        <select name="idClient" id="selectClient" class="form-select" style="background: transparent; color: #4f4f4f">
+                        <select name="idClient" id="selectClient" onchange="showClient(this.value)" class="form-select" style="background: transparent; color: #4f4f4f">
                             <?php if(isset($data['clients'])){ foreach($data['clients'] as $client): ?>
                                 <option value="<?php echo $client["id"]; ?>" <?php echo (isset($data['lastId']) && $data['lastId'] == $client["id"] ? "SELECTED" : ""); ?>><?php echo $client["email"]; ?></option>
                             <?php endforeach; }?>
@@ -35,20 +35,16 @@
                         <input type="email" class="form-control" autocomplete="off" id="emailID" name="email" placeholder="Email" <?php if(isset($data['lastEmail'])){ ?> value="<?php echo $data['lastEmail'] ?>"<?php } ?>/>
                     </div>
 
-                    <!-- New password input -->
+                    <!-- Phone input -->
                     <div class="form-outline mb-4">
-                        <input type="password" name="password" class="form-control" placeholder="Nuova password"/>
+                        <input type="number" class="form-control" autocomplete="off" id="phoneID" name="number" placeholder="Number" <?php if(isset($data['lastNumber'])){ ?> value="<?php echo $data['lastNumber'] ?>"<?php } ?>/>
                     </div>
 
-                    <!-- Confirm password input -->
-                    <div class="form-outline mb-4">
-                        <input type="password" name="confPassword" class="form-control" placeholder="Conferma password"/>
-                    </div>
 
                     <!-- Submit button -->
                     <div class="form-outline w-50 mx-auto">
                         <button type="submit" class="btn btn-primary btn-block mb-4">
-                            Crea
+                            Modifica
                         </button>
                     </div>
                     <div class="form-outline d-flex justify-content-center">
@@ -67,7 +63,6 @@
     window.onload = function onloadFunction() {
         var e = document.getElementById("selectClient");
         var value = e.value;
-
         showClient(value);
     }
 
@@ -83,6 +78,7 @@
                     document.getElementById('nameID').value = data[0].name;
                     document.getElementById('surnameID').value = data[0].surname;
                     document.getElementById('emailID').value = data[0].email;
+                    document.getElementById('phoneID').value = data[0].phone;
 
                     document.getElementById('error').style.display = "none";
 
@@ -96,6 +92,7 @@
                     document.getElementById('nameID').value = "";
                     document.getElementById('surnameID').value = "";
                     document.getElementById('emailID').value = "";
+                    document.getElementById('phoneID').value = "";
                 }
             }
         }
