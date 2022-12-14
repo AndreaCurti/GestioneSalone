@@ -17,7 +17,7 @@ class Products extends Controller
     public function loadAddPage()
     {
         if(isset($_SESSION['email'])){
-            $this->view->render('products/.php');
+            $this->view->render('products/addProduct.php');
         }else{
             $this->view->render('login/index.php');
         }
@@ -26,7 +26,12 @@ class Products extends Controller
     public function loadModifyPage()
     {
         if(isset($_SESSION['email'])){
-            $this->view->render('products/.php');
+            $products =  $this->getProducts();
+            if($products != false){
+                $this->view->render('products/modifyProduct.php', false, array('products' => $products));
+            }else{
+                $this->locate('home/loadErrorPage');
+            }
         }else{
             $this->view->render('login/index.php');
         }
@@ -42,21 +47,69 @@ class Products extends Controller
     }
 
     /**
-     * Questo metodo viene invocato per aggiungere un cliente.
-     * Se tutti i controlli vanno a buon fine, richiama il metodo del model per aggiungere un cliente.
+     * Questo metodo serve per trovare tutti i prodotti.
      */
-    public function addClient(){
+    private function getProducts(){
+        require_once 'application/models/product_model.php';
+        return ProductClass::getProductsInfos();
+    }
+
+    /**
+     * Questo metodo serve per trovare le informazioni di un singolo prodotto in base all'id passato.
+     *
+     * @param Int $id -> id del prodotto
+     */
+    public function getSpecificProductInfo($id){
+        require_once 'application/models/product_model.php';
+        try {
+            $product = ProductClass::getSingleProductInfos(intval($id));
+        } catch (Exception $e) {
+            $shop = $e->getMessage();
+        }
+        echo json_encode($product);
+    }
+
+    /**
+     * Questo metodo viene invocato per aggiungere un prodotto.
+     * Se tutti i controlli vanno a buon fine, richiama il metodo del model per aggiungere un prodotto.
+     */
+    public function addProduct(){
         if(isset($_SESSION['email'])){
-            require_once 'application/models/client_model.php';
+            require_once 'application/models/product_model.php';
             if($_SERVER["REQUEST_METHOD"] == "POST"){
                 try{
-                    ClientClass::addClient();
-                    $this->locate('clients/index');
+                    ProductClass::addProduct();
+                    $this->locate('products/index');
                 }catch(Exception $e){
-                    $this->view->render('clients/addClient.php',
-                        false, array('error' => $e->getMessage(), 'lastName' => $_POST["name"],
-                            'lastSurname' => $_POST["surname"],
-                            'lastEmail' => $_POST["email"]));
+                    $this->view->render('products/addProduct.php',
+                        false, array('error' => $e->getMessage(),
+                            'lastName' => $_POST["name"],
+                            'lastCost' => $_POST["cost"]));
+                }
+            }
+        }else{
+            $this->view->render('login/index.php');
+        }
+    }
+
+    /**
+     * Questo metodo viene invocato per modificare un prodotto.
+     * Se tutti i controlli vanno a buon fine, richiama il metodo del model per modificare un prodotto.
+     */
+    public function modifyProduct(){
+        if(isset($_SESSION['email'])){
+            require_once 'application/models/product_model.php';
+            if($_SERVER["REQUEST_METHOD"] == "POST"){
+                try{
+                    ProductClass::modifyProduct();
+                    $this->locate('products/index');
+                }catch(Exception $e){
+                    $this->view->render('products/modifyProduct.php', false,
+                        array(
+                            'products' => $this->getProducts(),
+                            'error' => $e->getMessage(),
+                            'lastName' => $_POST["name"],
+                            'lastCost' => $_POST["cost"]));
                 }
             }
         }else{

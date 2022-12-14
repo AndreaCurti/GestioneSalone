@@ -17,7 +17,7 @@ abstract class ClientClass
             $email = AntiCsScript::check($_POST['email']);
             $number = AntiCsScript::check($_POST['number']);
             if(Email::isValidClient($email)){
-                $sql = $conn->prepare("INSERT INTO client(name, surname, email, phone) VALUES (?, ?, ?, ?)");
+                $sql = $conn->prepare("INSERT INTO client(name, surname, email, phone, active) VALUES (?, ?, ?, ?, 1)");
                 $sql->bind_param("ssss",$name, $surname, $email, $number);
                 $sql->execute();
             }else{

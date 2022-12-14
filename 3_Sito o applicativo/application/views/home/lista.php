@@ -34,13 +34,13 @@
         <!-- List group-->
         <ul class="list-group">
             <!-- list group item-->
-            <a class="text-decoration-none rounded mb-3" href="<?php echo URL; ?>shops">
+            <a class="text-decoration-none rounded mb-3" href="<?php echo URL; ?>clients">
             <li class="list-group-item">
                 <!-- Custom content-->
                 <div class="media align-items-lg-center py-1">
                 <div class="media-body">
-                    <h4 class="mt-0 font-weight-bold mb-2">Gestione succursali</h4>
-                    <p class="font-italic text-muted mb-0 small">Aggiungi, modifica, elimina le succursali. Inoltre puoi gestire le entrate e uscite delle succursali.</p>
+                    <h4 class="mt-0 font-weight-bold mb-2">Gestione clienti</h4>
+                    <p class="font-italic text-muted mb-0 small">Aggiungi, modifica, elimina i clienti.</p>
                 </div>
                 <img src="<?php echo URL; ?>application/public/img/shop-management.png" alt="Gestione succursali" width="130" class="rounded mx-auto mt-4 d-block ml-lg-5">
                 <div class="mask gradient-custom"></div>
@@ -52,13 +52,13 @@
 
 
             <!-- list group item-->
-            <a class="text-decoration-none rounded mb-3" href="<?php echo URL; ?>users">
+            <a class="text-decoration-none rounded mb-3" href="<?php echo URL; ?>products">
             <li class="list-group-item">
                 <!-- Custom content-->
                 <div class="media align-items-lg-center py-1">
                 <div class="media-body">
-                    <h4 class="mt-0 font-weight-bold mb-2">Gestione utenti</h4>
-                    <p class="font-italic text-muted mb-0 small">Aggiungi, modifica, elimina gli utenti. Inoltre puoi gestire le assegnazioni alle succursali degli utenti.</p>
+                    <h4 class="mt-0 font-weight-bold mb-2">Gestione prodotti</h4>
+                    <p class="font-italic text-muted mb-0 small">Aggiungi, modifica, elimina i prodotti.</p>
                 </div>
                 <img src="<?php echo URL; ?>application/public/img/user-management.png" alt="Gestione utenti" width="130" class="rounded mx-auto mt-4 d-block ml-lg-5">
                 <div class="mask gradient-custom"></div>
@@ -69,32 +69,15 @@
             <!-- End -->
 
             <!-- list group item-->
-            <a class="text-decoration-none rounded mb-3" href="<?php echo URL; ?>admins">
+            <a class="text-decoration-none rounded mb-3" href="<?php echo URL; ?>services">
             <li class="list-group-item">
                 <!-- Custom content-->
                 <div class="media align-items-lg-center py-1">
                 <div class="media-body">
-                    <h4 class="mt-0 font-weight-bold mb-2">Gestione amministratori</h4>
-                    <p class="font-italic text-muted mb-0 small">Aggiungi, modifica, elimina gli amministratori del sistema.</p>
+                    <h4 class="mt-0 font-weight-bold mb-2">Gestione servizi</h4>
+                    <p class="font-italic text-muted mb-0 small">Aggiungi, modiaddUser.phpfica, elimina i servizi.</p>
                 </div>
                 <img src="<?php echo URL; ?>application/public/img/admin-management.jpg" alt="Gestione amministratori" width="130" class="rounded mx-auto mt-4 d-block ml-lg-5">
-                <div class="mask gradient-custom"></div>
-                </div>
-                <!-- End -->
-            </li>
-            </a>
-            <!-- End -->
-
-            <!-- list group item-->
-            <a class="text-decoration-none rounded mb-3" href="<?php echo URL; ?>home">
-            <li class="list-group-item">
-                <!-- Custom content-->
-                <div class="media align-items-lg-center py-1">
-                <div class="media-body">
-                    <h4 class="mt-0 font-weight-bold mb-2">Archivio succursali</h4>
-                    <p class="font-italic text-muted mb-0 small">Consulta le statistiche e i report dei saldi delle succursali ormai eliminate.</p>
-                </div>
-                <img src="<?php echo URL; ?>application/public/img/archive.png" alt="Archivio succursali" width="130" class="rounded mx-auto mt-4 d-block ml-lg-5">
                 <div class="mask gradient-custom"></div>
                 </div>
                 <!-- End -->

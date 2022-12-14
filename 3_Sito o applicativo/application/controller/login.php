@@ -11,25 +11,16 @@
             $this->view->render('login/index.php');
         }
 
-        
+
         public function loginUser(){
             require 'application/models/login_model.php';
             if($_SERVER["REQUEST_METHOD"] == "POST"){
-                if(!empty($_POST["email"]) || !empty($_POST["password"])){
-                    $user = new LoginClass($_POST["email"], $_POST["password"]);
-                    if($user->doLogin()){
-                        $this->view->locate('home');
-                    }else{
-                        $this->view->render('login/index.php', false,
-                            array('error' => "Email o password non valida", 'lastEmail' => $_POST["email"]));
-                    }
-                }else{
-                    $this->view->render('login/index.php', false,
-                        array('error' => "Completare tutti i campi", 'lastEmail' => $_POST["email"]));
+                try{
+                    LoginClass::doLogin();
+                    $this->view->locate('home');
+                }catch(Exception $e){
+                    $this->view->render('login/index.php', false, array('error' => $e->getMessage(), 'lastEmail' => $_POST["email"]));
                 }
-
-            }else{
-                $this->view->locate('login');
             }
         }
     }

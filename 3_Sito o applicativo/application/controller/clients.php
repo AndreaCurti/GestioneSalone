@@ -71,7 +71,7 @@ class Clients extends Controller
     /**
      * Questo metodo serve per trovare le informazioni di un singolo cliente in base all'id passato.
      *
-     * @param Int $id -> id del negozio
+     * @param Int $id -> id del cliente
      */
     public function getSpecificClientInfo($id){
         require_once 'application/models/client_model.php';
