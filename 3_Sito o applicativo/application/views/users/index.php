@@ -20,7 +20,7 @@
             <div class="h-100">
                 <div class="col-lg-12 mt-5" style="z-index: 10">
                     <h1 class="display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-                    Gestione utenti
+                    Gestione utentia
                     </h1>
                 </div>
             </div>
