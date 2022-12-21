@@ -8,7 +8,7 @@
           <h5 class="mb-4">Gestisci i clienti, i prodotti e i servizi </h5>
           <a
             class="btn btn-outline-light btn-lg m-2"
-            href="<?php echo URL; ?>home/openLista"
+            href="<?php echo URL; ?>home/openList"
             role="button"
             rel="nofollow"
           >Scopri funzionalità</a
