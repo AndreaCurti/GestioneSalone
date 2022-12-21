@@ -20,7 +20,7 @@
             <div class="h-100">
                 <div class="col-lg-12 mt-5" style="z-index: 10">
                     <h1 class="display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-                        Gestione assegnazioni a succursali
+                        Gestione servizi
                     </h1>
                 </div>
             </div>
@@ -30,19 +30,18 @@
 
     <div class="row">
         <div class="col-lg-6 mx-auto">
+
             <!-- List group-->
             <ul class="list-group">
-
                 <!-- list group item-->
-                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>users/loadAssignPage">
+                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>services/loadAddPage">
                     <li class="list-group-item">
                         <!-- Custom content-->
                         <div class="media align-items-lg-center py-1">
                             <div class="media-body">
-                                <h4 class="mt-0 font-weight-bold mb-2">Assegna utente ad una succursale</h4>
+                                <h4 class="mt-0 font-weight-bold mb-2">Aggiungi servizio</h4>
                             </div>
-                            <img src="<?php echo URL; ?>application/public/img/plus-icon.png" alt="Assegna utente a succursale"
-                                 width="100" class="rounded mx-auto mt-1 d-block ml-lg-5">
+                            <img src="<?php echo URL; ?>application/public/img/plus-icon.png" alt="Aggiungi cliente" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
                             <div class="mask gradient-custom"></div>
                         </div>
                         <!-- End -->
@@ -51,22 +50,37 @@
                 <!-- End -->
 
                 <!-- list group item-->
-                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>users/loadRemoveUserFromShopPage">
+                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>clients/loadModifyPage">
                     <li class="list-group-item">
                         <!-- Custom content-->
                         <div class="media align-items-lg-center py-1">
                             <div class="media-body">
-                                <h4 class="mt-0 font-weight-bold mb-2">Elimina utente dalla propria succursale</h4>
+                                <h4 class="mt-0 font-weight-bold mb-2">Modifica servizio</h4>
                             </div>
-                            <img src="<?php echo URL; ?>application/public/img/delete-icon.png"
-                                 alt="Rimuovi utente da succursale" width="100"
-                                 class="rounded mx-auto mt-1 d-block ml-lg-5">
+                            <img src="<?php echo URL; ?>application/public/img/pencil-icon.png" alt="Modifica cliente" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
                             <div class="mask gradient-custom"></div>
                         </div>
                         <!-- End -->
                     </li>
                 </a>
                 <!-- End -->
+
+                <!-- list group item-->
+                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>clients/loadDeletePage">
+                    <li class="list-group-item">
+                        <!-- Custom content-->
+                        <div class="media align-items-lg-center py-1">
+                            <div class="media-body">
+                                <h4 class="mt-0 font-weight-bold mb-2">Elimina servizio</h4>
+                            </div>
+                            <img src="<?php echo URL; ?>application/public/img/delete-icon.png" alt="Elimina cliente" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
+                            <div class="mask gradient-custom"></div>
+                        </div>
+                        <!-- End -->
+                    </li>
+                </a>
+                <!-- End -->
+
         </div>
     </div>
     <br><br><br><br><br><br><br>

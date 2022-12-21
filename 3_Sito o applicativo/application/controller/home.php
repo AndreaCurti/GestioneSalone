@@ -14,7 +14,7 @@
             }
         }
 
-        public function openLista()
+        public function openList()
         {
             if(isset($_SESSION['email'])){
                 $this->view->render('home/lista.php');

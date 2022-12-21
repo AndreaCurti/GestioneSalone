@@ -13,7 +13,7 @@
 
                     <!-- Select user input -->
                     <div class="form-group mb-4">
-                        <label for="selectAdmin" class="control-label pull-right h4">Scegli un cliente</label><br><br>
+                        <label for="selectClient" class="control-label pull-right h4">Scegli un cliente</label><br><br>
                         <select name="idClient" id="selectClient" class="form-select" style="background: transparent; color: #4f4f4f">
                             <?php if(isset($data['clients'])){ foreach($data['clients'] as $client): ?>
                                 <option value="<?php echo $client["id"]; ?>" <?php echo (isset($data['lastId']) && $data['lastId'] == $client["id"] ? "SELECTED" : ""); ?>><?php echo $client["email"]; ?></option>

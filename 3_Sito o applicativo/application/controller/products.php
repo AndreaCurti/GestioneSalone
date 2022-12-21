@@ -40,7 +40,12 @@ class Products extends Controller
     public function loadDeletePage()
     {
         if(isset($_SESSION['email'])){
-            $this->view->render('products/.php');
+            $products =  $this->getProducts();
+            if($products != false){
+                $this->view->render('products/deleteProduct.php', false, array('products' => $products));
+            }else{
+                $this->locate('home/loadErrorPage');
+            }
         }else{
             $this->view->render('login/index.php');
         }
@@ -110,6 +115,29 @@ class Products extends Controller
                             'error' => $e->getMessage(),
                             'lastName' => $_POST["name"],
                             'lastCost' => $_POST["cost"]));
+                }
+            }
+        }else{
+            $this->view->render('login/index.php');
+        }
+    }
+
+    /**
+     * Questo metodo viene invocato per modificare un prodotto.
+     * Se tutti i controlli vanno a buon fine, richiama il metodo del model per modificare un prodotto.
+     */
+    public function deleteProduct(){
+        if(isset($_SESSION['email'])){
+            require_once 'application/models/product_model.php';
+            if($_SERVER["REQUEST_METHOD"] == "POST"){
+                try{
+                    ProductClass::deleteProduct();
+                    $this->locate('products/index');
+                }catch(Exception $e){
+                    $this->view->render('products/deleteProduct.php', false,
+                        array(
+                            'products' => $this->getProducts(),
+                            'error' => $e->getMessage()));
                 }
             }
         }else{

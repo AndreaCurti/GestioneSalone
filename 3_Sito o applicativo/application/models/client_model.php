@@ -94,5 +94,20 @@ abstract class ClientClass
             throw new Exception("Nessun cliente selezionato");
         }
     }
+
+    /**
+     * Questo metodo serve per selezionare un cliente.
+     */
+    static function chooseWhichClient(){
+        if(!empty($_POST["idClient"])){
+            require_once 'application/libs/antiCsScript.php';
+            $id = AntiCsScript::check($_POST["idClient"]);
+            $_SESSION['selectedClientId'] = $id;
+            $_SESSION['selectedClientName'] = self::getSingleClientInfos($id)[0]['name'];
+            $_SESSION['selectedClientSurname'] = self::getSingleClientInfos($id)[0]['surname'];
+        }else{
+            throw new Exception("No client selected");
+        }
+    }
 }
 ?>

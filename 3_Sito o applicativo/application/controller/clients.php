@@ -14,7 +14,7 @@ class Clients extends Controller
         }
     }
 
-    public function openLista()
+    public function openList()
     {
         if(isset($_SESSION['email'])){
             $this->view->render('home/lista.php');
@@ -57,6 +57,62 @@ class Clients extends Controller
             }
         }else{
             $this->view->render('login/index.php');
+        }
+    }
+
+    /**
+     * Questo metodo serve per caricare la pagina di scelta di un cliente.
+     */
+    public function loadChooseWhichClient(){
+        if(isset($_SESSION['email'])){
+            $clients =  $this->getClients();
+            if($clients != false){
+                $this->view->render('clients/chooseWhichClient.php', false, array('clients' => $clients));
+            }else{
+                $this->locate('home/loadErrorPage');
+            }
+        }else{
+            $this->view->locate('login/index');
+        }
+    }
+
+    /**
+     * Questo metodo serve per caricare la pagina per la gestionedegli acquisti di un cliente.
+     */
+    public function loadManagePurchases(){
+        if(isset($_SESSION['email'])){
+            if(isset($_SESSION['selectedClientId'])){
+                $this->view->render('clients/managePurchases.php');
+            }else{
+                $this->loadChooseWhichClient();
+            }
+        }else{
+            $this->view->locate('login/index');
+        }
+    }
+
+    /**
+     * Questo metodo viene invocato per la selezione di un cliente.
+     * Se tutti i controlli vanno a buon fine, richiama il metodo del model per selezionare un cliente.
+     */
+    public function chooseWhichClient(){
+        if(isset($_SESSION['email'])){
+            require_once 'application/models/client_model.php';
+            if($_SERVER["REQUEST_METHOD"] == "POST"){
+                try{
+                    ClientClass::chooseWhichClient();
+                    $this->locate('clients/loadManagePurchases');
+                }catch(Exception $e){
+                    $clients =  $this->getClients();
+                    if($clients != false){
+                        $this->view->render('clients/chooseWhichClient.php', false, array('clients' => $clients));
+                    }else{
+                        $this->locate('home/loadErrorPage');
+                    }
+                }
+            }
+        }else{
+            $this->view->locate('login/index');
         }
     }
 
