@@ -14,7 +14,7 @@ class Services extends Controller
         }
     }
 
-    public function openList()
+    public function openLista()
     {
         if(isset($_SESSION['email'])){
             $this->view->render('home/lista.php');
@@ -35,9 +35,9 @@ class Services extends Controller
     public function loadModifyPage()
     {
         if(isset($_SESSION['email'])){
-            $clients =  $this->getClients();
-            if($clients != false){
-                $this->view->render('clients/modifyClient.php', false, array('clients' => $clients));
+            $services =  $this->getServices();
+            if($services != false){
+                $this->view->render('services/modifyService.php', false, array('services' => $services));
             }else{
                 $this->locate('home/loadErrorPage');
             }
@@ -49,9 +49,9 @@ class Services extends Controller
     public function loadDeletePage()
     {
         if(isset($_SESSION['email'])){
-            $clients =  $this->getClients();
-            if($clients != false){
-                $this->view->render('clients/deleteClient.php', false, array('clients' => $clients));
+            $services =  $this->getServices();
+            if($services != false){
+                $this->view->render('services/deleteService.php', false, array('services' => $services));
             }else{
                 $this->locate('home/loadErrorPage');
             }
@@ -63,9 +63,9 @@ class Services extends Controller
     /**
      * Questo metodo serve per trovare tutti i clienti.
      */
-    private function getClients(){
-        require_once 'application/models/client_model.php';
-        return ClientClass::getClientsInfos();
+    private function getServices(){
+        require_once 'application/models/service_model.php';
+        return ServiceClass::getServicesInfos();
     }
 
     /**
@@ -73,10 +73,10 @@ class Services extends Controller
      *
      * @param Int $id -> id del negozio
      */
-    public function getSpecificClientInfo($id){
-        require_once 'application/models/client_model.php';
+    public function getSpecificServiceInfo($id){
+        require_once 'application/models/service_model.php';
         try {
-            $shop = ClientClass::getSingleClientInfos(intval($id));
+            $shop = ServiceClass::getSingleServiceInfos(intval($id));
         } catch (Exception $e) {
             $shop = $e->getMessage();
         }
@@ -109,22 +109,20 @@ class Services extends Controller
      * Questo metodo viene invocato per modificare un cliente.
      * Se tutti i controlli vanno a buon fine, richiama il metodo del model per modificare un cliente.
      */
-    public function modifyClient(){
+    public function modifyService(){
         if(isset($_SESSION['email'])){
-            require_once 'application/models/client_model.php';
+            require_once 'application/models/service_model.php';
             if($_SERVER["REQUEST_METHOD"] == "POST"){
                 try{
-                    ClientClass::modifyClient();
-                    $this->locate('clients/index');
+                    ServiceClass::modifyService();
+                    $this->locate('services/index');
                 }catch(Exception $e){
-                    $this->view->render('clients/modifyClient.php', false,
+                    $this->view->render('services/modifyService.php', false,
                         array(
-                            'clients' => $this->getClients(),
+                            'services' => $this->getServices(),
                             'error' => $e->getMessage(),
                             'lastName' => $_POST["name"],
-                            'lastAddress' => $_POST["address"],
-                            'lastId' => $_POST['idShop'],
-                            'lastNumber' => $_POST['number']));
+                            'lastCost' => $_POST["cost"]));
                 }
             }
         }else{
@@ -136,19 +134,18 @@ class Services extends Controller
      * Questo metodo viene invocato per eliminare un cliente.
      * Se tutti i controlli vanno a buon fine, richiama il metodo del model per eliminare un cliente.
      */
-    public function deleteClient(){
-        require_once 'application/models/client_model.php';
+    public function deleteService(){
+        require_once 'application/models/service_model.php';
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             try{
-                ClientClass::deleteClient();
-                $this->locate('clients/index');
+                ServiceClass::deleteService();
+                $this->locate('services/index');
             }catch(Exception $e){
-                $clients =  $this->getClients();
-                $this->view->render('clients/deleteClient.php', false,
-                    array('error' => "Errore durante l'eliminazione, riprovare", 'clients' => $clients));
+                $services =  $this->getServices();
+                $this->view->render('services/deleteService.php', false,
+                    array('error' => "Errore durante l'eliminazione, riprovare", 'services' => $services));
             }
         }
     }
-
 }
 ?>

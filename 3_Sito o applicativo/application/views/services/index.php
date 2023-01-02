@@ -50,7 +50,7 @@
                 <!-- End -->
 
                 <!-- list group item-->
-                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>clients/loadModifyPage">
+                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>services/loadModifyPage">
                     <li class="list-group-item">
                         <!-- Custom content-->
                         <div class="media align-items-lg-center py-1">
@@ -66,7 +66,7 @@
                 <!-- End -->
 
                 <!-- list group item-->
-                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>clients/loadDeletePage">
+                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>services/loadDeletePage">
                     <li class="list-group-item">
                         <!-- Custom content-->
                         <div class="media align-items-lg-center py-1">

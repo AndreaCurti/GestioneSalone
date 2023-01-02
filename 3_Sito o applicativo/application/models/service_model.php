@@ -21,10 +21,10 @@ abstract class ServiceClass
         }
     }
 
-    static function getClientsInfos(){
+    static function getServicesInfos(){
         require_once 'application/libs/database.php';
         $conn = Database::getConnection();
-        $sql = "SELECT * FROM client";
+        $sql = "SELECT * FROM service";
         $result = $conn->query($sql);
         $data = array();
         if ($result->num_rows > 0) {
@@ -36,10 +36,10 @@ abstract class ServiceClass
         return false;
     }
 
-    static function getSingleClientInfos($id){
+    static function getSingleServiceInfos($id){
         require_once 'application/libs/database.php';
         $conn = Database::getConnection();
-        $sql = $conn->prepare("SELECT * FROM client WHERE id=?");
+        $sql = $conn->prepare("SELECT * FROM service WHERE id=?");
         $sql->bind_param("i",$id);
         $sql->execute();
         $result = $sql->get_result();
@@ -50,21 +50,19 @@ abstract class ServiceClass
             }
             return $data;
         }
-        throw new Exception("Cliente non esistente");
+        throw new Exception("Servizio non esistente");
     }
 
-    static function modifyClient(){
+    static function modifyService(){
         require_once 'application/libs/database.php';
         $conn = Database::getConnection();
-        if(!empty($_POST['name']) && !empty($_POST['surname']) && !empty($_POST['email'])  && !empty($_POST['number'])){
+        if(!empty($_POST['name']) && !empty($_POST['cost'])){
             require_once 'application/libs/antiCsScript.php';
-            $id =AntiCsScript::check($_POST['idClient']);
+            $id =AntiCsScript::check($_POST['idService']);
             $name = AntiCsScript::check($_POST['name']);
-            $surname = AntiCsScript::check($_POST['surname']);
-            $email = AntiCsScript::check($_POST['email']);
-            $number = AntiCsScript::check($_POST['number']);
-            $sql = $conn->prepare("UPDATE client SET name = ?, surname = ?, email = ?, phone = ?  WHERE id = ?");
-            $sql->bind_param("sssii", $name, $surname, $email, $number, $id);
+            $cost = AntiCsScript::check($_POST['cost']);
+            $sql = $conn->prepare("UPDATE service SET name = ?, cost = ? WHERE id = ?");
+            $sql->bind_param("sii", $name, $cost, $id);
             $sql->execute();
             if($sql->affected_rows <= 0){
                 throw new Exception("Errore durante la modifica");
@@ -74,17 +72,17 @@ abstract class ServiceClass
         }
     }
 
-    static function deleteClient(){
+    static function deleteService(){
         require_once 'application/libs/database.php';
         $conn = Database::getConnection();
-        if(!empty($_POST["idClient"])){
+        if(!empty($_POST["idService"])){
             require_once 'application/libs/antiCsScript.php';
-            $id = AntiCsScript::check($_POST["idClient"]);
-            $sql = $conn->prepare("DELETE FROM client WHERE id = ?");
+            $id = AntiCsScript::check($_POST["idService"]);
+            $sql = $conn->prepare("DELETE FROM service WHERE id = ?");
             $sql->bind_param("i", $id);
             $sql->execute();
         }else{
-            throw new Exception("Nessun cliente selezionato");
+            throw new Exception("Nessun servizo selezionato");
         }
     }
 }
