@@ -13,7 +13,7 @@
                         
 
                         <div class="form-group mb-4">
-                            nome prodotto
+                            Nome prodotto
                             <select name="idProduct" id="selectProduct" class="form-select" style="background: transparent; color: #4f4f4f">
                             <?php if(isset($data['products'])){ foreach($data['products'] as $product): ?>
                                 <option value="<?php echo $product["id"]; ?>" <?php echo (isset($data['lastId']) && $data['lastId'] == $product["id"] ? "SELECTED" : ""); ?>><?php echo $product["name"]; ?></option>

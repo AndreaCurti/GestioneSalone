@@ -13,7 +13,7 @@
                         
 
                         <div class="form-group mb-4">
-                            nome servizio
+                            Nome servizio
                             <select name="idService" id="selectService" class="form-select" style="background: transparent; color: #4f4f4f">
                             <?php if(isset($data['services'])){ foreach($data['services'] as $service): ?>
                                 <option value="<?php echo $service["id"]; ?>" <?php echo (isset($data['lastId']) && $data['lastId'] == $service["id"] ? "SELECTED" : ""); ?>><?php echo $service["name"]; ?></option>

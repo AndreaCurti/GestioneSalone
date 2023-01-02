@@ -15,8 +15,8 @@
                                 <tr>
                                     <th scope="col">Nome prodotto</th>
                                     <th scope="col">Costo</th>
-                                    <th scope="col">metodo di pagamento</th>
-                                    <th scope="col">data</th>
+                                    <th scope="col">Metodo di pagamento</th>
+                                    <th scope="col">Data</th>
                                 </tr>
                             </thead>
                             <tbody>
