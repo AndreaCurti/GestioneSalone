@@ -89,7 +89,7 @@
                             <div class="media-body">
                                 <h4 class="mt-0 font-weight-bold mb-2">Gestione acquisti</h4>
                             </div>
-                            <img src="<?php echo URL; ?>application/public/img/delete-icon.png" alt="Gestione acquisti" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
+                            <img src="<?php echo URL; ?>application/public/img/acquisti-icon.png" alt="Gestione acquisti" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
                             <div class="mask gradient-custom"></div>
                         </div>
                         <!-- End -->

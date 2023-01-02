@@ -8,7 +8,7 @@
 
         <div class="card bg-glass mb-5">
             <div class="card-body px-4 pt-5 pb-4 px-md-5 ">
-                <form action="<?php echo URL ?>clients/chooseWhichClient" method="POST"">
+                <form action="<?php echo URL ?>clients/chooseWhichClient" method="POST">
 
                 <!-- Select user input -->
                 <div class="form-group mb-4">

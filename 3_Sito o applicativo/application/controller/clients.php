@@ -117,6 +117,156 @@ class Clients extends Controller
     }
 
     /**
+     * Questo metodo serve per caricare la pagina per immettere l'acquisto di un prodotto
+     */
+    public function loadAddProductPurchase(){
+        if(isset($_SESSION['email'])){
+            if(isset($_SESSION['selectedClientId'])){
+
+                require_once 'application/models/product_model.php';
+                $products = ProductClass::getProductsInfos();
+
+                require_once 'application/models/method_model.php';
+                $methods = MethodClass::getMethodsInfos();
+
+                $this->view->render('clients/addProductPurchase.php', false, array('products' => $products, 'methods' => $methods));
+            }else{
+                $this->loadChooseWhichClient();
+            }
+        }else{
+            $this->view->locate('login/index');
+        }
+    }
+
+    /**
+     * Questo metodo serve per caricare la pagina per immettere l'acquisto di un servizio
+     */
+    public function loadAddServicePurchase(){
+        if(isset($_SESSION['email'])){
+            if(isset($_SESSION['selectedClientId'])){
+
+                require_once 'application/models/service_model.php';
+                $services = ServiceClass::getServicesInfos();
+
+                require_once 'application/models/method_model.php';
+                $methods = MethodClass::getMethodsInfos();
+
+                $this->view->render('clients/addServicePurchase.php', false, array('services' => $services, 'methods' => $methods));
+            }else{
+                $this->loadChooseWhichClient();
+            }
+        }else{
+            $this->view->locate('login/index');
+        }
+    }
+
+    /**
+     * Questo metodo serve per aggiungere il pagamento di un prodotto
+     */
+    public function addProductPurchase(){
+        if(isset($_SESSION['email'])){
+            if(isset($_SESSION['selectedClientId'])){
+                require_once 'application/models/client_model.php';
+                if($_SERVER["REQUEST_METHOD"] == "POST"){
+                    try{
+
+                        ClientClass::addProductPurchase();
+                        $this->locate('clients/loadManagePurchases');
+
+                    }catch(Exception $e){
+                        require_once 'application/models/product_model.php';
+                        $products = ProductClass::getProductsInfos();
+
+                        require_once 'application/models/method_model.php';
+                        $methods = MethodClass::getMethodsInfos();
+
+                        $this->view->render('clients/addProductPurchase.php',
+                            false, array('error' => $e->getMessage(),
+                                'products' => $products,
+                                'methods' => $methods));
+                    }
+                }
+            }else{
+                $this->loadChooseWhichClient();
+            }
+        }else{
+            $this->view->render('login/index.php');
+        }
+    }
+
+    /**
+     * Questo metodo serve per aggiungere il pagamento di un servizio
+     */
+    public function addServicePurchase(){
+        if(isset($_SESSION['email'])){
+            if(isset($_SESSION['selectedClientId'])){
+                require_once 'application/models/client_model.php';
+                if($_SERVER["REQUEST_METHOD"] == "POST"){
+                    try{
+
+                        ClientClass::addServicePurchase();
+                        $this->locate('clients/loadManagePurchases');
+
+                    }catch(Exception $e){
+                        require_once 'application/models/service_model.php';
+                        $services = ServiceClass::getServicesInfos();
+
+                        require_once 'application/models/method_model.php';
+                        $methods = MethodClass::getMethodsInfos();
+
+                        $this->view->render('clients/addServicePurchase.php',
+                            false, array('error' => $e->getMessage(),
+                                'services' => $services,
+                                'methods' => $methods));
+                    }
+                }
+            }else{
+                $this->loadChooseWhichClient();
+            }
+        }else{
+            $this->view->render('login/index.php');
+        }
+    }
+
+    /**
+     * Questo metodo serve per caricare la pagina dove mostra gli acquisti dei prodotti effettuati dal cliente
+     */
+    public function loadProductsPurchased(){
+        if(isset($_SESSION['email'])){
+            if(isset($_SESSION['selectedClientId'])){
+
+                require_once 'application/models/client_model.php';
+                $productPurchased = ClientClass::getProductsPurchased();
+
+                $this->view->render('clients/productPurchased.php', false, array('productPurchased' => $productPurchased));
+            }else{
+                $this->loadChooseWhichClient();
+            }
+        }else{
+            $this->view->locate('login/index');
+        }
+    }
+
+    /**
+     * Questo metodo serve per caricare la pagina dove mostra gli acquisti dei prodotti effettuati dal cliente
+     */
+    public function loadServicesPurchased(){
+        if(isset($_SESSION['email'])){
+            if(isset($_SESSION['selectedClientId'])){
+
+                require_once 'application/models/client_model.php';
+                $servicePurchased = ClientClass::getServicesPurchased();
+
+                $this->view->render('clients/servicePurchased.php', false, array('servicePurchased' => $servicePurchased));
+            }else{
+                $this->loadChooseWhichClient();
+            }
+        }else{
+            $this->view->locate('login/index');
+        }
+    }
+
+    /**
      * Questo metodo serve per trovare tutti i clienti.
      */
     private function getClients(){

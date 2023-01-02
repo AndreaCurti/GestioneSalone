@@ -42,7 +42,7 @@
                     <h4 class="mt-0 font-weight-bold mb-2">Gestione clienti</h4>
                     <p class="font-italic text-muted mb-0 small">Aggiungi, modifica, elimina i clienti.</p>
                 </div>
-                <img src="<?php echo URL; ?>application/public/img/shop-management.png" alt="Gestione succursali" width="130" class="rounded mx-auto mt-4 d-block ml-lg-5">
+                <img src="<?php echo URL; ?>application/public/img/client-icon.png" alt="Gestione clienti" width="130" class="rounded mx-auto mt-4 d-block ml-lg-5">
                 <div class="mask gradient-custom"></div>
                 </div>
                 <!-- End -->
@@ -60,7 +60,7 @@
                     <h4 class="mt-0 font-weight-bold mb-2">Gestione prodotti</h4>
                     <p class="font-italic text-muted mb-0 small">Aggiungi, modifica, elimina i prodotti.</p>
                 </div>
-                <img src="<?php echo URL; ?>application/public/img/user-management.png" alt="Gestione utenti" width="130" class="rounded mx-auto mt-4 d-block ml-lg-5">
+                <img src="<?php echo URL; ?>application/public/img/product-icon.png" alt="Gestione prodotti" width="130" class="rounded mx-auto mt-4 d-block ml-lg-5">
                 <div class="mask gradient-custom"></div>
                 </div>
                 <!-- End -->
@@ -75,9 +75,9 @@
                 <div class="media align-items-lg-center py-1">
                 <div class="media-body">
                     <h4 class="mt-0 font-weight-bold mb-2">Gestione servizi</h4>
-                    <p class="font-italic text-muted mb-0 small">Aggiungi, modiaddUser.phpfica, elimina i servizi.</p>
+                    <p class="font-italic text-muted mb-0 small">Aggiungi, modifica, elimina i servizi.</p>
                 </div>
-                <img src="<?php echo URL; ?>application/public/img/admin-management.jpg" alt="Gestione amministratori" width="130" class="rounded mx-auto mt-4 d-block ml-lg-5">
+                <img src="<?php echo URL; ?>application/public/img/service-icon.png" alt="Gestione servizi" width="130" class="rounded mx-auto mt-4 d-block ml-lg-5">
                 <div class="mask gradient-custom"></div>
                 </div>
                 <!-- End -->

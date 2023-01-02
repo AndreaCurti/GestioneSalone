@@ -2,8 +2,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="description" content="Online Financial Management">
-        <title>Online Financial Management</title>
-        <meta name="author" content="Andrea Curti">
+        <title>Gestione Salone</title>
+        <meta name="author" content="Andrea Curti e Mattia Pasquini">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="<?php echo URL; ?>application/public/css/default.css">

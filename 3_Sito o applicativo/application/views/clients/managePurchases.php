@@ -33,14 +33,14 @@
             <!-- List group-->
             <ul class="list-group">
                 <!-- list group item-->
-                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>purchases/">
+                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>clients/loadAddProductPurchase/">
                     <li class="list-group-item">
                         <!-- Custom content-->
                         <div class="media align-items-lg-center py-1">
                             <div class="media-body">
                                 <h4 class="mt-0 font-weight-bold mb-2">Acquisto prodotto</h4>
                             </div>
-                            <img src="<?php echo URL; ?>application/public/img/entry-icon.png" alt="Acquisto prodotto" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
+                            <img src="<?php echo URL; ?>application/public/img/product-icon.png" alt="Acquisto prodotto" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
                             <div class="mask gradient-custom"></div>
                         </div>
                         <!-- End -->
@@ -49,30 +49,14 @@
                 <!-- End -->
 
                 <!-- list group item-->
-                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>purchases/">
-                    <li class="list-group-item">
-                        <!-- Custom content-->
-                        <div class="media align-items-lg-center py-1">
-                            <div class="media-body">
-                                <h4 class="mt-0 font-weight-bold mb-2">Rimborso prodotto</h4>
-                            </div>
-                            <img src="<?php echo URL; ?>application/public/img/expense-icon.png" alt="Rimborso prodotto" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
-                            <div class="mask gradient-custom"></div>
-                        </div>
-                        <!-- End -->
-                    </li>
-                </a>
-                <!-- End -->
-
-                <!-- list group item-->
-                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>purchases/">
+                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>clients/loadProductsPurchased/">
                     <li class="list-group-item">
                         <!-- Custom content-->
                         <div class="media align-items-lg-center py-1">
                             <div class="media-body">
                                 <h4 class="mt-0 font-weight-bold mb-2">Prodotti acquistati</h4>
                             </div>
-                            <img src="<?php echo URL; ?>application/public/img/statistics-icon.png"
+                            <img src="<?php echo URL; ?>application/public/img/archive.png"
                                  alt="Prodotti acquistati" width="70"
                                  class="rounded mx-auto mt-1 d-block ml-lg-5">
                             <div class="mask gradient-custom"></div>
@@ -83,14 +67,14 @@
                 <!-- End -->
 
                 <!-- list group item-->
-                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>purchases/">
+                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>clients/loadAddServicePurchase/">
                     <li class="list-group-item">
                         <!-- Custom content-->
                         <div class="media align-items-lg-center py-1">
                             <div class="media-body">
                                 <h4 class="mt-0 font-weight-bold mb-2">Acquisto servizio</h4>
                             </div>
-                            <img src="<?php echo URL; ?>application/public/img/report-icon.png" alt="Acquisto servizio" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
+                            <img src="<?php echo URL; ?>application/public/img/service-icon.png" alt="Acquisto servizio" width="70" class="rounded mx-auto mt-1 d-block ml-lg-5">
                             <div class="mask gradient-custom"></div>
                         </div>
                         <!-- End -->
@@ -99,14 +83,14 @@
                 <!-- End -->
 
                 <!-- list group item-->
-                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>purchases/">
+                <a class="text-decoration-none rounded mb-4 mx-5" href="<?php echo URL; ?>clients/loadServicesPurchased/">
                     <li class="list-group-item">
                         <!-- Custom content-->
                         <div class="media align-items-lg-center py-1">
                             <div class="media-body">
                                 <h4 class="mt-0 font-weight-bold mb-2">Servizi effettuati</h4>
                             </div>
-                            <img src="<?php echo URL; ?>application/public/img/statistics-icon.png"
+                            <img src="<?php echo URL; ?>application/public/img/archive.png"
                                  alt="Servizi effettuati" width="70"
                                  class="rounded mx-auto mt-1 d-block ml-lg-5">
                             <div class="mask gradient-custom"></div>

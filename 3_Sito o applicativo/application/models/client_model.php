@@ -109,5 +109,91 @@ abstract class ClientClass
             throw new Exception("No client selected");
         }
     }
+
+    static function addProductPurchase(){
+        require_once 'application/libs/database.php';
+        $conn = Database::getConnection();
+        if(!empty($_POST['idProduct']) && !empty($_POST['idMethod'])){
+            require_once 'application/libs/antiCsScript.php';
+            $product = AntiCsScript::check($_POST['idProduct']);
+            $method = AntiCsScript::check($_POST['idMethod']);
+            $clientId = $_SESSION['selectedClientId'];
+                
+            $sql = $conn->prepare("INSERT INTO client_buys_product(client_id, product_id, method_id, date) VALUES (?, ?, ?, CURDATE())");
+                
+            $sql->bind_param("iii",$clientId, $product, $method);
+                
+            $sql->execute();
+        }else{
+            throw new Exception("Completare tutti i campi");
+        }
+    }
+
+    static function addServicePurchase(){
+        require_once 'application/libs/database.php';
+        $conn = Database::getConnection();
+        if(!empty($_POST['idService']) && !empty($_POST['idMethod'])){
+            require_once 'application/libs/antiCsScript.php';
+            $service = AntiCsScript::check($_POST['idService']);
+            $method = AntiCsScript::check($_POST['idMethod']);
+            $clientId = $_SESSION['selectedClientId'];
+                
+            $sql = $conn->prepare("INSERT INTO client_buys_service(client_id, service_id, method_id, date) VALUES (?, ?, ?, CURDATE())");
+                
+            $sql->bind_param("iii",$clientId, $service, $method);
+                
+            $sql->execute();
+        }else{
+            throw new Exception("Completare tutti i campi");
+        }
+    }
+
+    static function getProductsPurchased(){
+        require_once 'application/libs/database.php';
+        $conn = Database::getConnection();
+
+        $client = $_SESSION['selectedClientId'];
+
+        $sql = $conn->prepare("SELECT p.name as product_name, p.cost as product_cost, m.name as method_name, cbp.date as date FROM client_buys_product as cbp INNER JOIN product as p ON p.id = cbp.product_id INNER JOIN method as m ON m.id = cbp.method_id where client_id=?");
+
+        $sql->bind_param("i", $client);
+        
+        $sql->execute();
+
+        $result = $sql->get_result();
+        
+        $data = array();
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+                $data[] = $row;
+            }
+            return $data;
+        }
+        return false;
+    }
+
+    static function getServicesPurchased(){
+        require_once 'application/libs/database.php';
+        $conn = Database::getConnection();
+
+        $client = $_SESSION['selectedClientId'];
+
+        $sql = $conn->prepare("SELECT s.name as service_name, s.cost as service_cost, m.name as method_name, cbs.date as date FROM client_buys_service as cbs INNER JOIN service as s ON s.id = cbs.service_id INNER JOIN method as m ON m.id = cbs.method_id where client_id=?");
+
+        $sql->bind_param("i", $client);
+        
+        $sql->execute();
+
+        $result = $sql->get_result();
+        
+        $data = array();
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+                $data[] = $row;
+            }
+            return $data;
+        }
+        return false;
+    }
 }
 ?>
